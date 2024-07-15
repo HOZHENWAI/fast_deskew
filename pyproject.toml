@@ -19,7 +19,7 @@ Tracker = "https://github.com/HOZHENWAI/fast_deskew/issues"
 [tool.setuptools.dynamic]
 dependencies = {file = ["requirements.txt"]}
 version = {file = ["VERSION"]}
-readme = {file = ["README.md"], content-type="type/markdown"}
+readme = {file = ["README.md"], content-type="text/markdown"}
 
 [tool.setuptools.dynamic.optional-dependencies]
 dev = {file = ["requirements-dev.txt"]}
