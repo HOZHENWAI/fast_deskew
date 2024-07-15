@@ -1,0 +1,10 @@
+#services:
+#  $project:
+#    build: ./
+#    networks:
+#      - $project-network
+#    working_dir: /workspace
+#    entrypoint: []
+#
+#networks:
+#  $project-networks

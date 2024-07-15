@@ -1,0 +1,64 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "${PROJECT-NAME}"
+requires-python = ">=3.12"
+license= {text = " MIT License "}
+authors = [{name="HO ZhenWai Olivier", email="hozhenwai@gmail.com"}]
+keywords = ["${LIST-OF-KEYWORD}"]
+dynamic = ["dependencies", "version", "readme", "optional-dependencies"]
+
+[project.urls]
+Source = "https://github.com/HOZHENWAI/${PROJECT-NAME}"
+Tracker = "https://github.com/HOZHENWAI/${PROJECT-NAME}/issues"
+
+[project.scripts]
+name = "${ENTRY-POINT}"
+
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}
+version = {file = ["VERSION"]}
+readme = {file = "README.md", content-type="type/markdown"}
+
+[tool.setuptools.dynamic.optional-dependencies]
+dev = {file = ["requirements-dev.txt"]}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "-ra -q --cov src.${PACKAGE-NAME} --cov-report html"
+testpaths = [
+    "tests",
+]
+required_plugins = [
+    "pytest-cov",
+    "pytest-assume",
+    "pytest-mock"
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    # Have to re-enable the standard pragma
+    "pragma: no cover",
+    # Don't complain if tests don't hit defensive assertion code:
+    "raise NotImplementedError",
+    "raise Assertion Error",
+    # Don't complain if non-runnable code isn't run:
+    "if 0:",
+    "if __name__ == .__main__.:",
+]
+fail_under = 0
+show_missing = true
+skip_empty = true
+
+[tool.black]
+line-length = 100
+target-version = ['py312']
+
+[tool.pylint.messages_control]
+max-line-length = 100
+max-module-lines = 500

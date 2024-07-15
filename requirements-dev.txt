@@ -1,0 +1,9 @@
+black>=24.1.1
+git-changelog>=2.4.0
+isort>=5.13.2
+pre-commit>=3.6.0
+pylint>=3.0.3
+pytest-assume>=2.4.3
+pytest-cov>=4.1.0
+pytest-mock>=3.12
+pytest>=8.0.0
