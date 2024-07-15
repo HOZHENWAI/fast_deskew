@@ -3,19 +3,17 @@ requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "${PROJECT-NAME}"
-requires-python = ">=3.12"
+name = "fast-deskew-cv"
+requires-python = ">=3.10"
 license= {text = " MIT License "}
 authors = [{name="HO ZhenWai Olivier", email="hozhenwai@gmail.com"}]
-keywords = ["${LIST-OF-KEYWORD}"]
+keywords = ["deskew", "fast"]
 dynamic = ["dependencies", "version", "readme", "optional-dependencies"]
 
 [project.urls]
-Source = "https://github.com/HOZHENWAI/${PROJECT-NAME}"
-Tracker = "https://github.com/HOZHENWAI/${PROJECT-NAME}/issues"
+Source = "https://github.com/HOZHENWAI/fast_deskew.git"
+Tracker = "https://github.com/HOZHENWAI/fast_deskew/issues"
 
-[project.scripts]
-name = "${ENTRY-POINT}"
 
 [tool.setuptools.dynamic]
 dependencies = {file = ["requirements.txt"]}
@@ -27,18 +25,20 @@ dev = {file = ["requirements-dev.txt"]}
 
 [tool.setuptools.packages.find]
 where = ["src"]
+exclude = ["tests"]
 
 [tool.pytest.ini_options]
 minversion = "7.0"
-addopts = "-ra -q --cov src.${PACKAGE-NAME} --cov-report html"
+addopts = "-ra -q --cov deskew --cov-report html"
 testpaths = [
-    "tests",
+    "src/tests",
 ]
 required_plugins = [
     "pytest-cov",
     "pytest-assume",
     "pytest-mock"
 ]
+pythonpath = ["src"]
 
 [tool.coverage.report]
 exclude_lines = [
