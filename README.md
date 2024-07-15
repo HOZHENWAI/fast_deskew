@@ -21,4 +21,4 @@ skew_angle = determine_skew(image_grayscale)
 ```
 
 # Note
-I do not recommend you to use this library directly when dealing with angle or more than 90° but to use it after fix the global rotation.
+I do not recommend you to use this library directly when dealing with angle or more than 90 but to use it after fix the global rotation.
